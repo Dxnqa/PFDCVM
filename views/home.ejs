@@ -7,66 +7,90 @@
     <title>Home page</title>
   </head>
   <body>
-    <div class="container-fluid mt-4 pb-3 text-center">
-      <div
-        class="col-md-4 bg-body border border-black border-3 rounded-2 px-3 py-2"
-        id="TechPanel"
-      >
-        <div class="mb-2 mb-md-3 text-start">
-          <!--Technician ID and Caller info-->
-        </div>
-        <div class="mb-2 mb-md-3">
-          <!--Call Categories-->
-          <p class="h4">Call Category</p>
-          <select
-            name="callType"
-            id="callType"
-            class="form-select text-align-center mt-3"
-          >
-            <option selected>Select a category</option>
-            <option value="alaskaNowCall">AlaskaNow Call</option>
-            <option value="pfdPasswortReset">PFD Password Reset</option>
-            <option value="myAlaskaCall">MyAlaska Call</option>
-            <option value="mfaIssues">MFA Issues</option>
-            <option value="pfdSignature">PFD E-Signature</option>
-            <option value="pfdCombinedQuestions">PFD Combined Questions</option>
-            <option value="pfd1099">PFD 1099</option>
-            <option value="pfdReferralnoAK">
-              PFD Referral w/o MyAlaska's Assistance
-            </option>
-            <option value="pfdReactivate">PFD Reactivate Account</option>
-            <option value="pfdCreateAccount">PFD Create Account</option>
-          </select>
-        </div>
-        <div class="mb-2 mb-md-3">
-          <!--Resolution status-->
-          <p class="h4">Resolution status</p>
-          <select
-            name="resolveStatus"
-            id="resolveStatus"
-            class="form-select mt-3"
-          >
-            <option selected>Did you resolve this?</option>
-            <option value="yes">Yes - minimal assistance</option>
-            <option value="yesHard">Yes - additional assistance</option>
-            <option value="yesExtended">Yes - extended duration</option>
-            <option value="no">No - unable to help user</option>
-            <option value="noDisconnect">No - call disconnected</option>
-            <option value="noUnrelated">No - Issue unrelated</option>
-          </select>
-        </div>
-        <div class="mb-2 mb-md-3">
-          <!--Technician Notes-->
-          <form action="/submit" method="POST">
-            <p class="h4">Technician Notes</p>
+    <div class="container mt-4 pb-3">
+      <div class="row">
+        <div
+          class="col-md-4 bg-body border border-black border-3 rounded-2 px-3 py-2"
+          id="TechPanel"
+        >
+          <form action="/submit" method="POST" class="text-center">
+            <label for="name" class="h4">Caller</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control border border-black"
+              placeholder="Caller Name"
+            />
+
+            <label for="category" class="h4">Category</label>
+            <select
+              name="category"
+              id="category"
+              class="form-select mt-2 mb-md-3 border border-black"
+            >
+              <option selected>Select a category</option>
+              <option value="AlaskaNow Call">AlaskaNow Call</option>
+              <option value="PFD Password Reset">PFD Password Reset</option>
+              <option value="MyAlaska Call">MyAlaska Call</option>
+              <option value="MFA Issues">MFA Issues</option>
+              <option value="PFD E-Signature">PFD E-Signature</option>
+              <option value="PFD Combined Questions">
+                PFD Combined Questions
+              </option>
+              <option value="PFD 1099">PFD 1099</option>
+              <option value="PFD Referral w/o MyAlaska's Assistance">
+                PFD Referral w/o MyAlaska's Assistance
+              </option>
+              <option value="PFD Reactivate Account">
+                PFD Reactivate Account
+              </option>
+              <option value="PFD Create Account">PFD Create Account</option>
+            </select>
+            <label for="resolution" class="h4">Resolution status</label>
+            <select
+              name="resolution"
+              id="resolution"
+              class="form-select mt-2 mb-md-3 border border-black"
+            >
+              <option selected>Did you resolve this?</option>
+              <option value="Yes - minimal assistance">
+                Yes - minimal assistance
+              </option>
+              <option value="Yes - additional assistance">
+                Yes - additional assistance
+              </option>
+              <option value="Yes - extended duration">
+                Yes - extended duration
+              </option>
+              <option value="No - unable to help user">
+                No - unable to help user
+              </option>
+              <option value="No - call disconnected">
+                No - call disconnected
+              </option>
+              <option value="No - Issue unrelated">No - Issue unrelated</option>
+            </select>
+            <label for="notes" class="h4">Technician Notes</label>
             <textarea
-              class="form-control"
-              placeholder="Additional notes (optional)"
-              style="height: 100px"
+              name="notes"
+              id="notes"
+              style="height: 90px"
+              placeholder="Additional Notes(optional)"
+              maxlength="250"
+              class="form-control mt-2 mb-md-1 border border-black"
             ></textarea>
-            <button class="btn btn-success mt-2">Submit entry</button>
+            <input
+              type="submit"
+              class="btn btn-success mt-3 mb-3 border border-black"
+              value="Submit Entry"
+            />
           </form>
         </div>
+        <div class="col-md-1"></div>
+        <div
+          class="col-md-7 bg-body border border-black border-3 rounded-2 px-3 py-2 d-none d-md-block"
+        ></div>
       </div>
     </div>
     <script
