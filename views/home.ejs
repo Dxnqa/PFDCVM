@@ -1,0 +1,78 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <div class="container-fluid mt-4 pb-3 text-center">
+      <div
+        class="col-md-4 bg-body border border-black border-3 rounded-2 px-3 py-2"
+        id="TechPanel"
+      >
+        <div class="mb-2 mb-md-3 text-start">
+          <!--Technician ID and Caller info-->
+        </div>
+        <div class="mb-2 mb-md-3">
+          <!--Call Categories-->
+          <p class="h4">Call Category</p>
+          <select
+            name="callType"
+            id="callType"
+            class="form-select text-align-center mt-3"
+          >
+            <option selected>Select a category</option>
+            <option value="alaskaNowCall">AlaskaNow Call</option>
+            <option value="pfdPasswortReset">PFD Password Reset</option>
+            <option value="myAlaskaCall">MyAlaska Call</option>
+            <option value="mfaIssues">MFA Issues</option>
+            <option value="pfdSignature">PFD E-Signature</option>
+            <option value="pfdCombinedQuestions">PFD Combined Questions</option>
+            <option value="pfd1099">PFD 1099</option>
+            <option value="pfdReferralnoAK">
+              PFD Referral w/o MyAlaska's Assistance
+            </option>
+            <option value="pfdReactivate">PFD Reactivate Account</option>
+            <option value="pfdCreateAccount">PFD Create Account</option>
+          </select>
+        </div>
+        <div class="mb-2 mb-md-3">
+          <!--Resolution status-->
+          <p class="h4">Resolution status</p>
+          <select
+            name="resolveStatus"
+            id="resolveStatus"
+            class="form-select mt-3"
+          >
+            <option selected>Did you resolve this?</option>
+            <option value="yes">Yes - minimal assistance</option>
+            <option value="yesHard">Yes - additional assistance</option>
+            <option value="yesExtended">Yes - extended duration</option>
+            <option value="no">No - unable to help user</option>
+            <option value="noDisconnect">No - call disconnected</option>
+            <option value="noUnrelated">No - Issue unrelated</option>
+          </select>
+        </div>
+        <div class="mb-2 mb-md-3">
+          <!--Technician Notes-->
+          <form action="/submit" method="POST">
+            <p class="h4">Technician Notes</p>
+            <textarea
+              class="form-control"
+              placeholder="Additional notes (optional)"
+              style="height: 100px"
+            ></textarea>
+            <button class="btn btn-success mt-2">Submit entry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
