@@ -1,13 +1,50 @@
 <%- include("partials/header.ejs") %>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Database view page</title>
-  </head>
-  <body>
-    <div class="container mt-4 pb-3 border border-2 border-black"></div>
-  </body>
-</html>
+<div class="container my-4">
+  <h3 class="mb-3">Database View</h3>
+  <div class="table-responsive" style="max-height:60vh;">
+    <table class="table table-sm table-striped table-hover align-middle">
+      <thead class="table-light" style="position: sticky; top: 0; z-index: 1;">
+        <tr>
+          <th style="width:6rem;">Id</th>
+          <th style="min-width:12rem;">Name</th>
+          <th style="min-width:10rem;">Category</th>
+          <th style="min-width:10rem;">Resolution</th>
+          <th class="d-none d-sm-table-cell" style="min-width:16rem;">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (entries.length === 0) { %>
+          <tr>
+            <td colspan="5" class="text-muted">No entries yet.</td>
+          </tr>
+        <% } %>
+
+        <% entries.forEach(r => { %>
+          <tr>
+            <td class="font-monospace"><%= r.id %></td>
+            <td><%= r.name %></td>
+            <td><%= r.category %></td>
+            <td>
+              <% const badge =
+                   String(r.resolution).toLowerCase() === 'resolved'
+                   ? 'bg-success'
+                   : String(r.resolution).toLowerCase() === 'open'
+                     ? 'bg-warning text-dark'
+                     : 'bg-secondary'; %>
+              <span class="badge <%= badge %>"><%= r.resolution %></span>
+            </td>
+            <td class="d-none d-sm-table-cell">
+              <span class="d-inline-block text-truncate"
+                    style="max-width:28ch;"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="<%= (r.notes || '').replace(/"/g, '&quot;') %>">
+                <%= r.notes %>
+              </span>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
