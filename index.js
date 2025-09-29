@@ -30,19 +30,28 @@ app.get("/", (req, res) => {
 
 app.post("/submit", async (req, res) => {
   const submission = {
+    name: req.body["name"],
     category: req.body["category"],
     resolution: req.body["resolution"],
     notes: req.body["notes"],
   };
-  //   try {
-  //     client.query(
-  //       "INSERT INTO call_log(id, name, category, resolution, notes) VALUES ($1, $2, $3, $4, $5)",
-  //       []
-  //     );
-  //   } catch (error) {
-  //     console.error(`Error processing: ${error.stack}`);
-  //   }
-  console.log(`Submission success:`, submission);
+  const query = await client.query("SELECT * FROM call_log");
+
+  try {
+    client.query(
+      "INSERT INTO call_log(name, category, resolution, notes) VALUES ($1, $2, $3, $4)",
+      [
+        submission.name,
+        submission.category,
+        submission.resolution,
+        submission.notes,
+      ]
+    );
+    console.log(`Submission success:`, submission);
+  } catch (error) {
+    console.error(`Error processing: ${error.stack}`);
+  }
+  console.log(query.rowCount);
   res.redirect("/");
 });
 

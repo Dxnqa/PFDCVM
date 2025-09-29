@@ -13,8 +13,10 @@
           class="col-md-4 bg-body border border-black border-3 rounded-2 px-3 py-2"
           id="TechPanel"
         >
+          <!--Tech Panel-->
           <form action="/submit" method="POST" class="text-center">
             <label for="name" class="h4">Caller</label>
+            <!--Caller name-->
             <input
               type="text"
               name="name"
@@ -24,6 +26,7 @@
             />
 
             <label for="category" class="h4">Category</label>
+            <!--Call Category-->
             <select
               name="category"
               id="category"
@@ -31,9 +34,9 @@
             >
               <option selected>Select a category</option>
               <option value="AlaskaNow Call">AlaskaNow Call</option>
-              <option value="PFD Password Reset">PFD Password Reset</option>
               <option value="MyAlaska Call">MyAlaska Call</option>
               <option value="MFA Issues">MFA Issues</option>
+              <option value="PFD Password Reset">PFD Password Reset</option>
               <option value="PFD E-Signature">PFD E-Signature</option>
               <option value="PFD Combined Questions">
                 PFD Combined Questions
@@ -48,6 +51,7 @@
               <option value="PFD Create Account">PFD Create Account</option>
             </select>
             <label for="resolution" class="h4">Resolution status</label>
+            <!--Resolution Status-->
             <select
               name="resolution"
               id="resolution"
@@ -72,6 +76,7 @@
               <option value="No - Issue unrelated">No - Issue unrelated</option>
             </select>
             <label for="notes" class="h4">Technician Notes</label>
+            <!--Additional notes-->
             <textarea
               name="notes"
               id="notes"
@@ -82,15 +87,45 @@
             ></textarea>
             <input
               type="submit"
-              class="btn btn-success mt-3 mb-3 border border-black"
+              class="btn btn-outline-success mt-3 mb-3 rounded-3"
               value="Submit Entry"
             />
           </form>
         </div>
         <div class="col-md-1"></div>
         <div
-          class="col-md-7 bg-body border border-black border-3 rounded-2 px-3 py-2 d-none d-md-block"
-        ></div>
+          class="col-md-7 bg-transparent border border-black border-3 rounded-2 px-3 py-2 d-none d-md-block"
+        >
+          <!--Activity/Logs Section-->
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="h2 fw-semibold">Team Console</p>
+            </div>
+            <hr class="border border-secondary border-2 opacity-100" />
+          </div>
+          <div class="row">
+            <div class="col-md-6 border border-2 border-black text-center rounded-2">
+              <p class="h4 fw-semibold">Activity logs</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5 border border-2 border-black rounded-2">
+              <p class="h4 fw-semibold text-center">Calls recorded</p>
+              <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">AlaskaNow Calls:</li>
+                <li class="nav-item">MyAlaska Calls:</li>
+                <li class="nav-item">MFA Issues:</li>
+                <li class="nav-item">PFD Password resets:</li>
+                <li class="nav-item">PFD E-Signatures:</li>
+                <li class="nav-item">PFD Combined-Questions:</li>
+                <li class="nav-item">PFD 1099 Calls:</li>
+                <li class="nav-item">PFD Referral w/o Assistance Calls:</li>
+                <li class="nav-item">PFD Reactivate Account Calls:</li>
+                <li class="nav-item">PFD Create Account Calls:</li>
+                <li class="nav-item mt-2">Total Calls:</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script
