@@ -28,6 +28,19 @@ app.get("/", (req, res) => {
   res.render("home.ejs", { technician: "Deandrey Domingo" });
 });
 
+app.get("/database", async (req, res) => {
+  const query = await client.query("SELECT * FROM call_log");
+  let entries = [];
+  query.rows.forEach((row) => {
+    entries.push(row);
+  });
+  console.log(entries);
+  res.render("database.ejs", {
+    technician: "Deandrey Domingo",
+    entries: entries,
+  });
+});
+
 app.post("/submit", async (req, res) => {
   const submission = {
     name: req.body["name"],
