@@ -34,7 +34,6 @@ app.get("/database", async (req, res) => {
   query.rows.forEach((row) => {
     entries.push(row);
   });
-  console.log(entries);
   res.render("database.ejs", {
     technician: "Deandrey Domingo",
     entries: entries,
@@ -64,7 +63,6 @@ app.post("/submit", async (req, res) => {
   } catch (error) {
     console.error(`Error processing: ${error.stack}`);
   }
-  console.log(query.rowCount);
   res.redirect("/");
 });
 

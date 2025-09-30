@@ -33,23 +33,39 @@
               id="category"
               class="form-select mt-2 mb-md-3 border border-black"
             >
-              <option selected>Select a category</option>
-              <option value="AlaskaNow Call">AlaskaNow Call</option>
-              <option value="MyAlaska Call">MyAlaska Call</option>
-              <option value="MFA Issues">MFA Issues</option>
+              <option selected disabled>Select a category</option>
+              <option value="PFD view Status">PFD view Status</option>
               <option value="PFD Password Reset">PFD Password Reset</option>
+              <option value="PFD MFA Issues">PFD MFA Issues</option>
+              <option value="PFD Create Account - New">
+                PFD Create Account - New
+              </option>
+              <option value="PFD Verified & Activated a Disabled Account">
+                PFD Verified & Activated a Disabled Account
+              </option>
+              <option value="PFD Account Disabled / Has other Account(s)">
+                PFD Account Disabled / Has other Account(s)
+              </option>
+              <option
+                value="PFD Account Disabled No Profile, Recreate for 2026"
+              >
+                PFD Account Disabled No Profile, Recreate for 2026
+              </option>
               <option value="PFD E-Signature">PFD E-Signature</option>
-              <option value="PFD Combined Questions">
-                PFD Combined Questions
+              <option value="PFD Referred w/o MyAK Asst.">
+                PFD Referred w/o MyAK Asst.
               </option>
+              <option value="PFD Referred with MyAK Asst.">
+                PFD Referred with MyAK Asst.
+              </option>
+              <option value="PFD MyAlaska Combo Questions">
+                PFD MyAlaska Combo Questions
+              </option>
+              <option value="PFD Fraud">PFD Fraud</option>
               <option value="PFD 1099">PFD 1099</option>
-              <option value="PFD Referral w/o MyAlaska's Assistance">
-                PFD Referral w/o MyAlaska's Assistance
+              <option value="PFD MyAlaska App Issues">
+                PFD MyAlaska App Issues
               </option>
-              <option value="PFD Reactivate Account">
-                PFD Reactivate Account
-              </option>
-              <option value="PFD Create Account">PFD Create Account</option>
             </select>
             <label for="resolution" class="h4">Resolution status</label>
             <!--Resolution Status-->
@@ -117,19 +133,24 @@
               style="background-color: #5c8dc5"
             >
               <p class="h4 fw-semibold text-center">Calls recorded</p>
-              <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">AlaskaNow Calls:</li>
-                <li class="nav-item">MyAlaska Calls:</li>
-                <li class="nav-item">MFA Issues:</li>
-                <li class="nav-item">PFD Password resets:</li>
-                <li class="nav-item">PFD E-Signatures:</li>
-                <li class="nav-item">PFD Combined-Questions:</li>
-                <li class="nav-item">PFD 1099 Calls:</li>
-                <li class="nav-item">PFD Referral w/o Assistance Calls:</li>
-                <li class="nav-item">PFD Reactivate Account Calls:</li>
-                <li class="nav-item">PFD Create Account Calls:</li>
-                <li class="nav-item mt-2">Total Calls:</li>
-              </ul>
+              <div class="row px-2">
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">PFD total Calls:</li>
+                  <li class="nav-item">MyAlaska total Calls:</li>
+                  <li class="nav-item">
+                    MyAlaska App Issues not PFD:
+                  </li>
+                  <li class="nav-item">Total Calls:</li>
+                </ul>
+              </div>
+              <br>
+              <div class="row px-2">
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">Responded to MyAlaska Emails:</li>
+                  <li class="nav-item">SOA Weekly Reported Call Totals:</li>
+                  <li class="nav-item">SOA Documented Calls:</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
