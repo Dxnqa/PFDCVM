@@ -5,6 +5,7 @@ import { readdir, readFileSync, writeFileSync, unlink, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
 import pg from "pg";
+import {callRecord} from "./record.js"
 
 const app = express();
 const port = 3050;
@@ -25,7 +26,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  const trackRecords = {
+    pfd: "PFD%",
+    myAK: "%MyAlaska%"
+  }
   res.render("home.ejs", { technician: "Deandrey Domingo" });
+  callRecord()
 });
 
 app.get("/database", async (req, res) => {
@@ -67,6 +73,8 @@ app.post("/submit", async (req, res) => {
 });
 
 app.listen(port, (err) => {
-  if (err) console.log(err);
+  if (err) {
+    console.log(err);
+  }
   console.log(`Server active on Port ${port}...`);
 });
