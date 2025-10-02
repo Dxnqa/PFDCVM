@@ -25,13 +25,15 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  const trackRecords = {
-    pfd: "PFD%",
-    myAK: "%MyAlaska%"
+app.get("/", async (req, res) => {
+  const {rows: [record] } = await client.query("SELECT COUNT(*)::bigint AS total, COUNT(*) FILTER (WHERE category LIKE $1)::bigint AS pfd, COUNT(*) FILTER (WHERE category LIKE $2)::bigint AS myak FROM call_log", ["PFD%", "%MyAlaska%"])
+
+  const trackRecord = {
+    total: Number(record.total),
+    pfd: Number(record.pfd),
+    myAK: Number(record.myak)
   }
-  res.render("home.ejs", { technician: "Deandrey Domingo" });
-  callRecord()
+  res.render("home.ejs", { technician: "Deandrey Domingo", trackRecord: trackRecord });
 });
 
 app.get("/database", async (req, res) => {
